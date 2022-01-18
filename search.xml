@@ -1,21 +1,684 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hello World</title>
-    <url>/2022/01/17/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+    <title>a</title>
+    <url>/2022/01/18/1.%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<h1 id="算法入门"><a href="#算法入门" class="headerlink" title="算法入门"></a>算法入门</h1><hr>
+<h2 id="算法就是问题的程序化解决方案"><a href="#算法就是问题的程序化解决方案" class="headerlink" title="算法就是问题的程序化解决方案"></a>算法就是问题的程序化解决方案</h2><p>定义:算法就是一个定义良好的可计算过程，它取一个或者一组值作为输入，并产生一个或者一组值作为输入。因此，算法是一系列的计算步骤，用来将输入数据转换成输出结果。</p>
+<img src="./image/algoPro.png" width = 500>
+***
+## 算法特征
+1. **输入**：一个算法具有0个或多个取自指定集合的输入值
+> 可以看作自变量$x$
+2. **输出**：对算法的每一次输入，算法具有一个或多个与输入值相关联的输出值
+> 可以看作$f(x)$
 
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p><strong>确定性</strong>：算法的每一个指令步骤都是明确的。</p>
+<blockquote>
+<p>读者理解时不会产生二义性。即对于相同的输入只能得出相同的输出。</p>
+</blockquote>
+</li>
+<li><p><strong>有限性/有穷性</strong>：对算法的每一次输入，算法都必须在有限 步骤（即有限时间）内结束。</p>
+<blockquote>
+<p>没有死循环，比如排序算法，需要在一定时间内得出结果。而操作系统可以死循环，为什么？他是程序嘛~</p>
+</blockquote>
+</li>
+<li><p><strong>正确性</strong>：对每一次输入，算法应产生出正确的输出值</p>
+<blockquote>
+<p>能求出正确解（最优解，次优解，可能解）的才叫算法，不能？那叫垃圾，或者说，你是不是看错题目了呀？</p>
+</blockquote>
+</li>
+<li><p><strong>通用性</strong>：算法的执行过程可以应用于所有同类求解问题</p>
+<blockquote>
+<p>需要能解取值范围内的所有情况</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="算法与程序的区别"><a href="#算法与程序的区别" class="headerlink" title="算法与程序的区别"></a>算法与程序的区别</h2><p>源于：程序=数据结构 + 算法 </p>
+<ol>
+<li><p>一个程序不一定满足有限性/有穷性。</p>
+<blockquote>
+<p>像前面说的，操作系统是程序，它会一直waiting for you</p>
+</blockquote>
+</li>
+<li><p>程序中的指令必须是机器可执行，而算法中的指令则无此限制。</p>
+<blockquote>
+<p>程序必须是编程语言编写的，但算法可以用流程图、伪代码等非编程语言来写，后面我们会详细介绍~</p>
+</blockquote>
+</li>
+<li><p>算法代表了对问题的解。</p>
+<blockquote>
+<p>算法是求解的策略，而程序不一定是求解。</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<h2 id="算法的描述"><a href="#算法的描述" class="headerlink" title="算法的描述"></a>算法的描述</h2><ul>
+<li>基于文字（自然语言）描述<blockquote>
+<p>优点：容易理解<br>缺点：冗长，二义性</p>
+</blockquote>
+</li>
+</ul>
+<img src="./image/text.png" width = 500>
 
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基于流程图描述<blockquote>
+<p>优点：流程直观<br>缺点：缺少严密性、灵活性</p>
+</blockquote>
+</li>
+</ul>
+<img src="./image/water.png" width = 500>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<ul>
+<li>基于程序设计语言<blockquote>
+<p>优点：能有计算机执行<br>缺点：抽象性差，对语言要求高</p>
+</blockquote>
+</li>
+</ul>
+<img src="./image/code.png" width = 500>
 
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+
+<ul>
+<li>伪代码<blockquote>
+<p>伪代码（Pseudocode）介于自然语言和程序设计语言之间的方法，它采用某一程序设计语言的基本语法，操作指令可以结合自然语言来设计</p>
+</blockquote>
+</li>
+</ul>
+<p>与真实代码（real code）的差异</p>
+<ul>
+<li>对特定算法的描述更加清晰和准确</li>
+<li>不需要考虑太多的技术细节</li>
+<li>用伪代码可以体现算法本质</li>
+<li>永远不会过时</li>
+</ul>
+<img src="./image/Pseudocode.png" width = 500>
+
+<img src="./image/1-1.png" width = 500>
+***
+## 一个好算法
+
+<h3 id="1-正确性（correctness）"><a href="#1-正确性（correctness）" class="headerlink" title="1. 正确性（correctness）"></a>1. 正确性（correctness）</h3><h4 id="程序的正确性"><a href="#程序的正确性" class="headerlink" title="程序的正确性"></a>程序的正确性</h4><p>算法能满足具体问题的需求；对输入、输出和处理过程等由明确的无歧义的描述；语法不包含语法错误；对输入实例能有正确的输出结果。（如果想继续深造请移步软件工程和软件测试，普及一个软件测试的思想：测试只能证明程序有错误,不能证明程序的正确性。）</p>
+<ul>
+<li>层次a：程序不含语法错误</li>
+<li>层次b：程序对于几组输入数据得出满足要求的结果</li>
+<li>层次c：程序对于精心选择的典型、苛刻的几组输入数据</li>
+<li>层次d：程序对于一切合法的输入数据都能产生满足规格说明要求的结果。</li>
+</ul>
+<h4 id="正确算法与不正确算法"><a href="#正确算法与不正确算法" class="headerlink" title="正确算法与不正确算法"></a>正确算法与不正确算法</h4><h5 id="正确的算法"><a href="#正确的算法" class="headerlink" title="正确的算法"></a>正确的算法</h5><ul>
+<li>算法对问题每一个输出实例，都能输出正确的结果并停止，则称之为正确的。</li>
+</ul>
+<h5 id="不正确的算法"><a href="#不正确的算法" class="headerlink" title="不正确的算法"></a>不正确的算法</h5><ul>
+<li>可能根本不会停止</li>
+<li>停止时给出的不是预期的结果</li>
+<li>如果算法的错误率可以控制，也是有用的<blockquote>
+<p>第三点可以思考贪心算法求硬币问题求出次优解、随机化算法的结果等</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="近似算法"><a href="#近似算法" class="headerlink" title="近似算法"></a>近似算法</h5><ul>
+<li>对所有输入都停止</li>
+<li>产生近似正确的解或产生不多的不正确解</li>
+</ul>
+<h4 id="调试程序-ne-程序正确性证明"><a href="#调试程序-ne-程序正确性证明" class="headerlink" title="调试程序 &ne; 程序正确性证明"></a>调试程序 &ne; 程序正确性证明</h4><ul>
+<li>程序调试只能证明程序有错</li>
+<li>不能证明程序无错误</li>
+</ul>
+<h3 id="2-可读性（readability）"><a href="#2-可读性（readability）" class="headerlink" title="2. 可读性（readability）"></a>2. 可读性（readability）</h3><ul>
+<li>易于阅读和理解</li>
+<li>晦涩难懂的程序往往容易隐藏较多的错误，难以调试，修改和维护</li>
+<li>需要详细的文档与注释</li>
+</ul>
+<h3 id="3-健壮性（robustness）"><a href="#3-健壮性（robustness）" class="headerlink" title="3. 健壮性（robustness）"></a>3. 健壮性（robustness）</h3><p>对于非法的输入数据，能适当地做出反应或进行处理，不会产生莫名其妙的结果（异常中断）</p>
+<blockquote>
+<p>严格try…catch筛选参数</p>
+</blockquote>
+<h3 id="4-效率和存储需求"><a href="#4-效率和存储需求" class="headerlink" title="4. 效率和存储需求"></a>4. 效率和存储需求</h3><ul>
+<li>效率值算法执行的时间</li>
+<li>存储需求指算法执行过程中需要的最大存储空间</li>
+<li>均与<strong>问题的规模</strong>有关<blockquote>
+<p>老师的ppt这部分写的不符合我的语法习惯，我改了一下<br>而问题的规模影响了什么呢？了解一下<a href="https://mp.weixin.qq.com/s/xxauNrJY9HlVNvLrL5j2hg">位图</a>是怎么出现的、插入排序与堆排序的适用范围</p>
+</blockquote>
+</li>
+</ul>
+<p>算法的意义：</p>
+<img src="./image/mean.png" width = 500>]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<h1 id="算法分析基础"><a href="#算法分析基础" class="headerlink" title="算法分析基础"></a>算法分析基础</h1><hr>
+<h2 id="2-1-算法设计和分析过程"><a href="#2-1-算法设计和分析过程" class="headerlink" title="2.1 算法设计和分析过程"></a>2.1 算法设计和分析过程</h2><img src="./image/process.png" width = 500>
+***
+## 2.2 求解过程说明
+
+<img src="./image/2-2.png" width = 500>
+
+<hr>
+<h2 id="2-3-算法分析框架"><a href="#2-3-算法分析框架" class="headerlink" title="2.3 算法分析框架"></a>2.3 算法分析框架</h2><ul>
+<li><p>算法分析是指对一个算法所需要的资源进行预测，通常是对计算时间和空间的预测。算法饭呢西的目的是为了从多个候选算法中选择一个最有效的算法，或去掉较差的算法。</p>
+</li>
+<li><p>进行算法分析之前，首先要确定有关实现技术的模型，通常采用<strong>随机存取机（RAM）</strong>计算模型。假设：</p>
+<ul>
+<li>指令是逐条执行的，没有并发操作</li>
+<li>包含常用指令，每条指令执行时间为常量</li>
+<li>数据类型有整数类型和浮点实数类型</li>
+<li>不存在存储器层级进行建模</li>
+</ul>
+</li>
+<li><p>默认情况下，算法分析是指对算法<strong>时间效率</strong>的分析</p>
+</li>
+<li><p>算法运行时间是指特定输入时，所执行的基本操作数</p>
+<ul>
+<li>输入数据的<strong>规模</strong>和<strong>分布</strong>是影响算法运行时间的两个主要因素</li>
+</ul>
+</li>
+<li><p>算法时间效率分析框架</p>
+<ul>
+<li>算法时间效率用算法输入规模n为参数的函数来度量;</li>
+<li>对输入规模相同的情况下，有些算法的时间效率会有明显差异.对于这样的算法要区分**最坏运行时间(时间复杂度)**、 最佳运行时间、平均运行时间    </li>
+<li>对于大规模输入，通常只关乎运行<strong>时间效率函数的增长率</strong>，即只关注函数的高阶项，而忽略低阶项和高阶项系数。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-4-度量算法效率的方法"><a href="#2-4-度量算法效率的方法" class="headerlink" title="2.4 度量算法效率的方法"></a>2.4 度量算法效率的方法</h2><ul>
+<li><p>事后统计的方法</p>
+<ul>
+<li>事后统计法需要先将算法实现，然后测算其时间和空间的开销。<blockquote>
+<p>首先，这种方法必须将算法转变为可执行的代码，其次，时间开销和空间开销往往以来与计算机的软件和硬件配置，这种方式测试出来的时空复杂度不具备普适性，很容易掩盖算法本身的优劣。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>事前分析估算的方法</p>
+<ul>
+<li>依据的算法选用何种策略</li>
+<li>问题的规模</li>
+<li>书写程序的语言</li>
+<li>编辑程序所产生的代码的质量</li>
+<li>机器执行指令的速度</li>
+</ul>
+</li>
+<li><p>算法的存储量</p>
+<ul>
+<li>输入数据所占空间</li>
+<li>程序本身所占空间</li>
+<li>辅助变量所占空间</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-5-复杂度分析"><a href="#2-5-复杂度分析" class="headerlink" title="2.5 复杂度分析"></a>2.5 复杂度分析</h2><blockquote>
+<p>这部分可参考<a href="https://cloud.tencent.com/developer/article/1769988">时间复杂度与空间复杂度的计算</a></p>
+</blockquote>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a><strong>时间复杂度</strong></h3><ul>
+<li>用于评估执行程序所消耗的时间，可以估算出程序对处理器的使用程度。</li>
+<li>一个算法通常存在最好、平均、最坏三种情况，我们一般关注的是最坏情况，代表的是算法运行时间的上界。</li>
+<li>常见的算法时间复杂度由小到大依次为：Ο(1)＜Ο(log n)＜Ο(n)＜Ο(nlog n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2^n)＜Ο(n!)</li>
+</ul>
+<img src="./image/2-9.png" width = 500>
+
+<img src="./image/2-8.png" width = 500>
+
+
+
+<h4 id="时间复杂度的渐进表示法"><a href="#时间复杂度的渐进表示法" class="headerlink" title="时间复杂度的渐进表示法:"></a>时间复杂度的渐进表示法:</h4><img src="./image/2-3.png" width = 500>
+
+<h4 id="算法的执行时间"><a href="#算法的执行时间" class="headerlink" title="算法的执行时间"></a>算法的执行时间</h4><p>$$<br>算法的执行时间 = \sum 原操作的执行次数 * 原操作的执行时间<br>$$</p>
+<blockquote>
+<p>语句的<strong>频度</strong>指的是该语句重复执行的次数。一个算法中<strong>所有语句的频度之和</strong>(由于语句执行时间接近，故默认为同一执行时间)构成该算法的运行时间。</p>
+</blockquote>
+<img src="./image/2-4.png" width = 500>
+
+<h4 id="分析算法时间复杂度的基本方法"><a href="#分析算法时间复杂度的基本方法" class="headerlink" title="分析算法时间复杂度的基本方法"></a>分析算法时间复杂度的基本方法</h4><ul>
+<li>找出语句频度最大的那条语句作为基本语句（循环嵌套<strong>最深层</strong>的语句）</li>
+<li>计算基本语句的频度得到问题规模n的某个函数$f(x)$</li>
+<li>取其数量级用“O”表示（大O表示法）</li>
+</ul>
+<img src="./image/2-5.png" width = 500>
+
+<img src="./image/2-6.png" width = 500>
+
+<img src="./image/2-7.png" width = 500>
+
+<h4 id="算法时间复杂度的其他表示"><a href="#算法时间复杂度的其他表示" class="headerlink" title="算法时间复杂度的其他表示"></a>算法时间复杂度的其他表示</h4><img src="./image/2-10.png" width = 500>
+
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a><strong>空间复杂度</strong></h3><ul>
+<li>用于评估执行程序所占用的内存空间，可以估算出程序对计算机内存的使用程度。</li>
+<li>这里的内存通常指<strong>辅助变量所占空间</strong>（辅助数据结构、函数栈等），是对一个算法在运行过程中临时占用的存储空间大小的量度。</li>
+</ul>
+<h4 id="渐进空间复杂度"><a href="#渐进空间复杂度" class="headerlink" title="渐进空间复杂度"></a>渐进空间复杂度</h4><blockquote>
+<p>跟渐进时间复杂度差不多的啦</p>
+</blockquote>
+<img src="./image/2-11.png" width = 500>
+
+<img src="./image/2-12.png" width = 500>]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/10.%20np%E7%90%86%E8%AE%BA/</url>
+    <content><![CDATA[<h1 id="np理论"><a href="#np理论" class="headerlink" title="np理论"></a>np理论</h1>]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/4.%20%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/</url>
+    <content><![CDATA[<h1 id="递归与分治"><a href="#递归与分治" class="headerlink" title="递归与分治"></a>递归与分治</h1><h2 id="递推-Inductive"><a href="#递推-Inductive" class="headerlink" title="递推 Inductive"></a>递推 Inductive</h2><ul>
+<li>一步步往后，从左往右。即<strong>有来无回</strong>。</li>
+</ul>
+<h2 id="递归-Recursive"><a href="#递归-Recursive" class="headerlink" title="递归 Recursive"></a>递归 Recursive</h2><ul>
+<li>从后面一步步往前嵌套，再从最前面一步步往后套。<strong>递归 = 递推 + 回归</strong>。即<strong>有来有回</strong><br>基本思想：<strong>把规模大的问题转化为规模小的相似的子问题</strong>，解决大问题和解决小问题的方法往往是同一个方法，所以产生了<strong>函数直接或间接调用它自身的情况</strong>。这种解决问题的函数<strong>必须有明显的结束条件</strong>，这样就不会产生无限递归的情况。</li>
+</ul>
+<p>基本思想决定了递归函数需要两个要素</p>
+<ul>
+<li>边界条件</li>
+<li>递归方程</li>
+</ul>
+<p>优缺点：</p>
+<ul>
+<li>优点：结构清晰，可读性强，容易用数学归纳法来证明算法的正确性，能为设计算法、调试程序带来很大方便。</li>
+<li>缺点：递归算法的运行效率较低，无论是耗费是计算时间还是占用的存储空间都比非递归算法要多。<blockquote>
+<p><strong>解决方法</strong>：在递归算法种消除递归，转化为非递归算法</p>
+<ul>
+<li>模拟调用栈：通用性强，单本质还是递归，优化效果不明显</li>
+<li>递推实现</li>
+<li>尾递归：尾递归可以将递归转化为迭代求值，因为不需要继续存储上一层（想象成树）的数据。</li>
+<li><ul>
+<li>后两种方法在时空复杂度上均有较大改善，但其适用范围有限。**</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+<h2 id="迭代-Iteration"><a href="#迭代-Iteration" class="headerlink" title="迭代 Iteration"></a>迭代 Iteration</h2><ul>
+<li>循环执行，每次把前面计算出的值套下一步。迭代是逐渐逼近，<strong>用新值覆盖旧值</strong>。</li>
+</ul>
+<h2 id="区分自顶而下和自底而上"><a href="#区分自顶而下和自底而上" class="headerlink" title="区分自顶而下和自底而上"></a>区分自顶而下和自底而上</h2><p>在我的眼里，我把一个大问题的求解过程看成一棵树，那么称树的顶部为<strong>“顶”</strong>，树的叶子部分称为<strong>“底”</strong>。</p>
+<h3 id="自顶而下"><a href="#自顶而下" class="headerlink" title="自顶而下"></a>自顶而下</h3><p>想解决大问题时，再去解决大问题分割成的小问题。也就是说从<strong>“顶”到“底”</strong>，把他叫做自顶而下。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line"></span><br><span class="line">A((A))</span><br><span class="line">B((B))</span><br><span class="line">C((C))</span><br><span class="line">D((D))</span><br><span class="line">E((E))</span><br><span class="line">F((F))</span><br><span class="line">G((G))</span><br><span class="line">A--&gt;B</span><br><span class="line">A--&gt;C</span><br><span class="line">B--&gt;D</span><br><span class="line">B--&gt;E</span><br><span class="line">C--&gt;F</span><br><span class="line">C--&gt;G</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="自底而上"><a href="#自底而上" class="headerlink" title="自底而上"></a>自底而上</h3><p>先解决小问题，再解决小问题组成的大问题。也就是说<strong>从“底”到“顶”</strong>，也就是自底而上。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph TB</span><br><span class="line"></span><br><span class="line">A((A))</span><br><span class="line">B((B))</span><br><span class="line">C((C))</span><br><span class="line">D((D))</span><br><span class="line">E((E))</span><br><span class="line">F((F))</span><br><span class="line">G((G))</span><br><span class="line">B--&gt;A</span><br><span class="line">C--&gt;A</span><br><span class="line">D--&gt;B</span><br><span class="line">E--&gt;B</span><br><span class="line">F--&gt;C</span><br><span class="line">G--&gt;C</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="分治法"><a href="#分治法" class="headerlink" title="分治法"></a>分治法</h2><img src = "./image/4-1.png" width = 500>
+
+<p>分治法的应用范围：</p>
+<ul>
+<li><p>问题规模缩小到一定程度就可以<strong>容易地</strong>解决</p>
+</li>
+<li><p>具有最优子结构性质</p>
+</li>
+<li><p>子问题的解<strong>可以合并</strong>为该问题的解</p>
+<blockquote>
+<p>具有前两条但不具有此特征建议贪心算法或者动态规划</p>
+</blockquote>
+</li>
+<li><p>子问题相互独立，子问题之间不含公共子问题</p>
+<blockquote>
+<p>有公共子问题时建议<strong>动态规划</strong></p>
+</blockquote>
+</li>
+</ul>
+<p>在分治法设计算法时，最好使子问题的规模大致相同，即把问题分成<strong>大小相等</strong>的k个子问题，这种罪罚出自一种<strong>平衡子问题</strong>的思想。</p>
+<p>优缺点：<br>*优点<br>    * 能简单地求解复杂的问题<br>    * 并行性（并行计算、多处理器系统）<br>    * 内存访问（利用内存缓存机制，不需要访问存取速度较慢的主存）</p>
+<ul>
+<li>缺点<ul>
+<li>分治法不能适用于所有问题</li>
+<li>递归效率慢</li>
+<li>分治法比迭代法更复杂，如n个数求和</li>
+</ul>
+</li>
+</ul>
+<p>分治法常见题目：</p>
+<ul>
+<li><p>Binary search 二分搜索<br>进一步：superPow超级次方</p>
+</li>
+<li><p>Merge sort 归并排序<br>进一步：求逆序对数</p>
+</li>
+<li><p>Quick sort 快速排序</p>
+</li>
+<li><p>Matrix multiplication 矩阵乘法</p>
+</li>
+<li><p>Multiplication of two numbers 乘法问题 </p>
+</li>
+<li><p>Multiplication of two matrices 乘法问题</p>
+</li>
+<li><p>Finding Minimum and Maximum 找最大最小值</p>
+</li>
+<li><p>循环赛日程表</p>
+</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="对比各大排序算法"><a href="#对比各大排序算法" class="headerlink" title="对比各大排序算法"></a>对比各大排序算法</h2><blockquote>
+<p>先来点真实的~<br>这就是你们能学到的所有排序</p>
+</blockquote>
+<img src="./image/3-1.png" width = 1000>
+
+<h2 id="排序问题："><a href="#排序问题：" class="headerlink" title="排序问题："></a>排序问题：</h2><p>把一系列数据按非递增的顺序排序<br>输入：n个输入数$&lt;a_1,a_2,…,a_n&gt;$<br>输出：输入系列的有个排序$&lt;a_1’,a_2’,…,a_n’&gt;$，使得$a_1’{\leq}a_2’{\leq},…,{\leq}a_n’$</p>
+<blockquote>
+<p>输入数据的结构可以多种多样，如n元数组、链表等，输出按需求而定。</p>
+</blockquote>
+<ul>
+<li>部分概念：</li>
+<li>*原地排序算法**：空间复杂度为O(1)的排序算法</li>
+<li>*稳定排序算法**：相同的数据，排序后仍维持原有相对次序，可参考<a href="https://zhuanlan.zhihu.com/p/116046849">排序算法的稳定性</a></li>
+</ul>
+<p>排序问题是计算机科学领域中的最基本问题：</p>
+<ol>
+<li>有些应用程序本身就需对信息进行排序</li>
+<li>应用广泛，是许多算法的关键步骤</li>
+<li>已有很多成熟算法，他们采用各种技术，具有历史意义</li>
+<li>可以证明其非平凡下界，是渐进最优的</li>
+<li>可通过排序过程的下届来证明其他一些问题的下界</li>
+<li>在实现过程中经常伴随着许多工程问题出现（主机存储器层次结构、软件环境等）</li>
+</ol>
+<h2 id="以比较为基础的排序算法"><a href="#以比较为基础的排序算法" class="headerlink" title="以比较为基础的排序算法"></a>以比较为基础的排序算法</h2><h3 id="1-插入排序："><a href="#1-插入排序：" class="headerlink" title="1. 插入排序："></a>1. 插入排序：</h3><p><a href="https://www.jianshu.com/p/d2cf77f78b3e">参考资料：CoderJed：图解插入排序</a></p>
+<p>伪代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">INSERTION-SORT(A)			//A是数组</span><br><span class="line"> for j = 2 to A.length &#123; loop head</span><br><span class="line">	key = A[j]</span><br><span class="line">	//(将A[j]插入排序序列A[1..j-1])</span><br><span class="line">	i = j - 1</span><br><span class="line">	while i &gt; 0 &amp;&amp; A[i] &gt; key &#123;</span><br><span class="line">		A[i+1] = A[i]</span><br><span class="line">		i = i - 1</span><br><span class="line">	&#125;</span><br><span class="line">	A[i+1] = key</span><br><span class="line">&#125; loop below</span><br></pre></td></tr></table></figure>
+
+<p>算法时间效率分析：<br><img src = "./image/3-3.png" width = 500></p>
+<p><strong>最好情况</strong>：数组是排好序的，则插入的时候仅需要进行一次比较，<br><img src = "./image/3-4.png" width = 500><br><strong>最差情况</strong>：数组是逆序排序的，<br><img src = "./image/3-5.png" width = 500></p>
+<p><strong>时间复杂度</strong>：O(n²)<br><strong>空间复杂度</strong>：O(1)，只需要一个额外空间用于交换<br><strong>稳定性</strong>：插入排序是稳定的排序算法，满足条件<code>nums[j] &gt; nums[j + 1]</code>才发生交换，这个条件可以保证值相等的元素的相对位置不变。</p>
+<h3 id="2-冒泡排序"><a href="#2-冒泡排序" class="headerlink" title="2. 冒泡排序"></a>2. 冒泡排序</h3><p><a href="https://www.jianshu.com/p/648d87dc4cfc">参考资料：CoderJed：图解冒泡排序</a></p>
+<p><strong>最好情况</strong>：数据已排好序时<br><strong>最差情况</strong>：数据逆序排列</p>
+<p><strong>时间复杂度</strong>：O(n²)<br><strong>空间复杂度</strong>：O(1)，只需要一个额外空间用于交换<br><strong>稳定性</strong>：冒泡排序是稳定的排序算法。<br>因为可以实现值相等的元素的相对位置不变，例如我们上面的代码中，</p>
+<figure class="highlight plaintext"><figcaption><span>(arr[j] > arr[j + 1]) &#123; swap(arr, j, j + 1); &#125;``` ,只有当```arr[j] > arr[j + 1]```的时候才交换，这时候就是稳定的，假如写成```if (arr[j] ></span></figcaption><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">### 3. 选择排序</span><br><span class="line">[参考资料：CoderJed图解选择排序](https://www.jianshu.com/p/5223afa8796c)</span><br><span class="line"></span><br><span class="line">**时间复杂度**：O(n²)</span><br><span class="line">**空间复杂度**：O(1)，只需要一个附加程序单元用于交换</span><br><span class="line">**稳定性**：选择排序是不稳定的排序算法。</span><br><span class="line">因为无法保证值相等的元素的相对位置不变，例如 [3, 4, 3, 1, 5]这个数组，第一次交换，第一个3和1交换位置，此时原来两个3的相对位置发生了变化。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 4. 希尔排序</span><br><span class="line">[参考资料：runoob希尔排序](https://www.runoob.com/w3cnote/shell-sort.html)</span><br><span class="line"></span><br><span class="line">**时间复杂度**：O($n^&#123;1.3-2&#125;$)</span><br><span class="line">**空间复杂度**：O(1)</span><br><span class="line">**稳定性**：希尔排序是按照不同步长对元素进行插入排序，一次插入排序是稳定的，不会改变相同元素的相对顺序，但在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，稳定性就会被破坏，所以希尔排序不稳定。</span><br><span class="line"></span><br><span class="line">### 5. 堆排序</span><br><span class="line">[参考资料1：kkxiaojun：heapSort](https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/7.heapSort.md)</span><br><span class="line">[参考资料2：庾志辉](https://blog.csdn.net/YuZhiHui_No1/article/details/44258297)</span><br><span class="line">[参考资料3：本来无一物_f1f2](https://www.jianshu.com/p/3d70fccd003b)</span><br><span class="line"></span><br><span class="line">伪代码：</span><br><span class="line">```pseudocode</span><br><span class="line">//建堆,运行时间的界T(n) =O(N)</span><br><span class="line">BuildHeap(A)</span><br><span class="line">        n = length(A)</span><br><span class="line">        for  i = n/2 downto 1  do   //从非叶子节点开始，自底往上，使A变成最大堆</span><br><span class="line">               Max_Heapify(A, i, n)</span><br><span class="line">end</span><br><span class="line">//调整为最大堆 ,T(n) = O(lgn)</span><br><span class="line">Max_Heapify(A,idx,max) //idx：数组开始的下标，max：最大的数组下标</span><br><span class="line">    left = 2*idx</span><br><span class="line">    right = 2*idx</span><br><span class="line">    if(left&lt;max and A[left]&gt;A[idx]) then</span><br><span class="line">        largest = left</span><br><span class="line">    else</span><br><span class="line">        largest = idx</span><br><span class="line">    if(right &lt; max and A[right]&gt;A[largest]) then</span><br><span class="line">        largest = ritht  </span><br><span class="line">    if(largest != idx) then</span><br><span class="line">        exchange A[largest] with A[idx]</span><br><span class="line">        Max_Heapify(A,largest,max) //交换位置后，还需要调整它的子树</span><br><span class="line">end</span><br><span class="line">HeapSort(A)</span><br><span class="line">      BuildHeap(A)</span><br><span class="line">      for i = length(A) downto 2   do </span><br><span class="line">             exchange  A[1] with A[i] //把最大堆根节点与最后一个互换</span><br><span class="line">             Max_Heapify(A,1, i-1) //把交互后的排除在堆之外，重新从1到i-1,调整堆</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>部分操作：<br>建堆时间复杂度：$O(n)$<br>n-1次调整堆每一次代价为$O(lgn)$<br>HeapSort:<br>时间复杂度：$O(nlgn)$<br>空间复杂度：$O(1)$</p>
+<hr>
+<blockquote>
+<p>阅读下面内容前请先翻阅[分治法](./4. 分治法.md)相关内容</p>
+</blockquote>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>排序步数：每次都选中位数，可以找到构造深度最小的平衡二叉树。</p>
+<p><a href="https://harttle.land/2015/09/27/quick-sort.html">参考资料：harttle</a><br><a href="https://cloud.tencent.com/developer/article/1182321">参考资料：谭庆波</a><br><strong>平均时间复杂度</strong>：O(nlogn)<br><strong>平均空间复杂度</strong>：O(logn)<br><strong>稳定性</strong>：快速排序是不稳定的。<br>在中枢元素和a[j]（右侧元素）交换的时候，很有可能把前面的元素的稳定性打乱，比如序列为$\left{5,3,3,4,3,8,9,10,11\right}$， 现在中枢元素5和3(第5个元素，下标从1开始计)交换就会把元素3的稳定性打乱；</p>
+<hr>
+<h2 id="不以比较为基础的排序算法"><a href="#不以比较为基础的排序算法" class="headerlink" title="不以比较为基础的排序算法"></a>不以比较为基础的排序算法</h2><h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><h3 id="基数排序-1"><a href="#基数排序-1" class="headerlink" title="基数排序"></a>基数排序</h3><h2 id="课外知识："><a href="#课外知识：" class="headerlink" title="课外知识："></a>课外知识：</h2><blockquote>
+<p><a href="https%EF%BC%9A//www.delftstack.com/zh/tutorial/algorithm/tim-sort/">Timsort</a>：在较短的子数组归并时使用插入排序<br><a href="https://www.cxyxiaowu.com/10289.html">TreeSort</a>：利用二叉搜索树排序,根据中序遍历获得解<br><a href="https://sites.google.com/site/binarysearchcube/">CubeSort</a>：大佬,您自己看,我没看懂</p>
+</blockquote>
+<img src = "./image/3-6.png">
+
+
+
+
+<h2 id="java实现"><a href="#java实现" class="headerlink" title="java实现"></a>java实现</h2><blockquote>
+<p>呕心沥血的乱涂乱画<br><a href="./sort.md">lzkwyy的sort.md</a></p>
+</blockquote>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>本章复杂度分析部分来自：<br>简书作者：CoderJed<br>链接：<a href="https://www.jianshu.com/u/f3baddfa95fc">https://www.jianshu.com/u/f3baddfa95fc</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/7.%20%E5%9B%9E%E6%BA%AF%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="回溯法"><a href="#回溯法" class="headerlink" title="回溯法"></a>回溯法</h1><h2 id="搜索空间的三种表示："><a href="#搜索空间的三种表示：" class="headerlink" title="搜索空间的三种表示："></a>搜索空间的三种表示：</h2><ul>
+<li><strong>表序</strong>表示：搜索对象用线性表数据结构表示；</li>
+<li><strong>显示图</strong>表示：搜索对象在搜索前就用图(树)的数据结构表示；</li>
+<li><strong>隐式图</strong>表示：除了初始结点，其他结点在搜索过程中动态生成。缘于搜<br>索空间大，难以全部存储。</li>
+</ul>
+<p><strong>回溯法 (Backtracking) 又称为试探法</strong>：</p>
+<ul>
+<li>回溯法是一个既带有系统性又带有跳跃性的搜索算法；</li>
+<li>它在包含问题的所有解的解空间树中，按照深度优先的策略，从根结点出发搜索解空间树。<strong>系统性</strong></li>
+<li>算法搜索至解空间树的任一结点时，判断该结点为根的子树是否包含问题的解，如果肯定不包含，则跳过以该结点为根的子树的搜索，逐层向其祖先结点回溯。否则，进入该子树，继续深度优先的策略进行搜索。<strong>跳跃性</strong></li>
+<li>这种以深度优先的方式系统地搜索问题的解的算法称为<strong>回溯法</strong>，它适用于解一些组合数较大的问题。许多复杂的、规模较大的问题都可以使用回溯法，有<strong>“通用解题方法”</strong>的美称。</li>
+</ul>
+<img src = "./image/7-3.png" width = 500>
+
+<h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><ul>
+<li>搜索从开始结点(根结点) 出发，以深度优先搜索整个解空间。</li>
+<li>此时，应往回移动(回溯)至最近的一个活结点处(回溯点)，并使这个活结点成为当前的扩展结点；直到找到一个解或全部解。</li>
+<li>这个开始结点成为活结点，同时也成为当前的扩展结点。在当前的扩展结点处，搜索向纵深方向移至一个新结点。这个新结点就成为新的活结点，并成为当前扩展结点。</li>
+<li>如果在当前的扩展结点处不能再向纵深方向扩展，则当前扩展结点就成为死结点。 </li>
+</ul>
+<h2 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h2><p>① 针对所给问题，定义问题的解空间；</p>
+<p>② 确定易于搜索的解空间结构；</p>
+<p>③ <strong>以深度优先方式搜索解空间，并在搜索过程中用剪枝函数避免无效搜索。</strong></p>
+<p>常用剪枝函数：<br>① 用约束函数在扩展结点处剪去不满足约束的子树；<br>② 用限界函数剪去得不到最优解的子树</p>
+<p>二类常见的解空间树：</p>
+<ul>
+<li>子集树：当所给的问题是从n个元素的集合S中找出满足某种性质的子集时，相应的解空间树称为子集树。子集树通常有$2^n$个叶子结点，其总结点个数为$2^{n+1} -1$，遍历子集树时间为Ω($2^n$) 。如0-1背包问题，叶结点数为$2^n$，总结点数$2^{n+1}$。例如0-1背包问题</li>
+</ul>
+<img src = "./image/7-1.png" width = 500>
+
+<ul>
+<li>排列树：当所给问题是确定n个元素满足某种性质的排列时，相应的解空间树称为排列树。排列树通常有$n!$个叶子结点，因此，遍历排列树需要$Ω(n!)$的计算时间。如TSP问题 (Traveling Salesman Problem，推销员问题) ，叶结点数为$n!$，遍历时间为$Ω(n!)$。</li>
+</ul>
+<img src = "./image/7-2.png" width = 500>
+
+<h2 id="特征"><a href="#特征" class="headerlink" title="特征"></a>特征</h2><p>在搜索过程中动态产生问题的解空间。在任何时刻，算法<strong>只保存从根结点到当前扩展结点的路径</strong>。如果解空间树中从根结点到叶结点的最长路径的长度为$h(n)$，则回溯法所需的计算空间通常为$O(h(n))$。而显式地存储整个解空间则需要$O(2^{h(n)})$ 或$O(h(n)!)$内存空间。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/6.%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><ul>
+<li>从问题的某一个初始解出发，通过一系列的贪心选择，即当前状态下的<strong>局部最优选择</strong>，逐步逼近给定的目标，尽可能快地求得更<br>好的解。</li>
+<li>在贪心算法(Greedy Method)中采用<strong>逐步构造/分级最优解</strong>的方法。在每个阶段，都作出一个按某个评价函数最优的决策，该最优<br>评价函数称为贪心准则(Greedy Criterion)</li>
+<li>贪心算法的正确性，要<strong>证明按贪心准则求得的解是全局最优解。</strong></li>
+</ul>
+<h2 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h2><p>① 决定问题的最优子结构；<br>② 设计出一个递归解；<br>③ 证明在递归的任一阶段，最优选择之一总是贪心选择, 那么做贪心选择总是安全的。<br>④ 证明通过做贪心选择，所有子问题(除一个以外)都为空, 即只产生一个子问题。<br>⑤ 设计出一个实现贪心策略的递归算法。<br>⑥ (性能角度) 将递归算法转换成迭代算法。</p>
+<h2 id="可求解问题的性质："><a href="#可求解问题的性质：" class="headerlink" title="可求解问题的性质："></a>可求解问题的性质：</h2><ul>
+<li>贪心选择性质<br>所谓贪心选择性质是指<strong>所求问题的整体最优解可以通过一系列局部最优的选择</strong>，即贪心选择来达到。这是贪心算法可行的第一个基本要素，也是贪心算法与动态规划算法的主要区别。动态规划算法通常以自底向上的方式解各子问题，而贪心算法则通常以<strong>自顶向下</strong>的方式进行，以迭代的方式作出相继的贪心选择，<strong>每作一次贪心选择就将所求问题简化为规模更小的子问题</strong>。对于一个具体问题，要确定它是否具有贪心选择性质，必须证明每一步所作的贪心选择最终导致问题的整体最优解，否则得到的是近优解。</li>
+<li>最优子结构<br>当<strong>一个问题的最优解包含其子问题的最优解</strong>时，称此问题具有最优子结构性质。问题的最优子结构性质是该问题可用动态规划算法或贪心算法求解的关键特征。但是，需要注意的是，<strong>并非所有具有最优子结构性质的问题都可以采用贪心策略来得到最优解。</strong></li>
+</ul>
+<img src = "./image/6-1.png" width = 500>
+
+
+
+<img src = "./image/6-2.png" width = 500>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/8.%20%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="分支限界法"><a href="#分支限界法" class="headerlink" title="分支限界法"></a>分支限界法</h1><h2 id="与回溯法区别："><a href="#与回溯法区别：" class="headerlink" title="与回溯法区别："></a>与回溯法区别：</h2><ul>
+<li><strong>求解目标不同</strong>：<br>一般而言，回溯法的求解目标是找出解空间树中满足约束条件的所有解，<br>而分支限界法的求解目标则是<strong>尽快地找出满足约束条件的一个解</strong>；</li>
+<li><strong>搜索方法不同</strong>：<br>回溯法使用深度优先方法搜索，而<strong>分支限界一般用宽度优先或最佳优先方<br>法来搜索；</strong></li>
+<li><strong>对扩展结点的扩展方式不同</strong>：<br>分支限界法中，<strong>每一个活结点只有一次机会成为扩展结点。</strong>活结点一旦成<br>为扩展结点，就一次性产生其所有儿子结点；</li>
+<li><strong>存储空间的要求不同</strong>:<br>分支限界法的<strong>存储空间比回溯法大得多</strong>，因此当内存容量有限时，回溯法<br>解决问题成功的可能性更大。</li>
+</ul>
+<h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><ul>
+<li>分支限界法<strong>常以广度优先或以最小耗费(最大效益)优先的方式</strong>搜索问题的解空间树。</li>
+</ul>
+<ol>
+<li>对已处理的各结点<strong>根据限界函数估算</strong>目标函数的可能取值，</li>
+<li>从中选出目标函数<strong>取得极大(极小) 值的结点优先进行广度优先搜索,</strong> </li>
+<li><strong>不断地调整搜索方向，尽快找到解，裁剪那些不能得到最优解的子树以提高搜索效率。</strong> </li>
+</ol>
+<h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><p>限界函数一般是基于问题的目标函数，适用于求解最优化问题。</p>
+<h2 id="求解步骤："><a href="#求解步骤：" class="headerlink" title="求解步骤："></a>求解步骤：</h2><p>① 定义解空间(对解编码)； ② 确定解空间的树结构；③ 按BFS等方式搜索：</p>
+<p>a. 每个活结点仅有一次机会变成扩展结点；<br>b. 由扩展结点生成一步可达(即宽度搜索)的新结点；<br>c. 在新结点中，删除不可能导出最优解的结点； // 限界策略<br>d. 将剩余的新结点加入活动表(队列)中；<br>e. 从活动表中选择结点再扩展； //分支策略<br>f. 直至活动表为空；</p>
+<h2 id="常见的两种分支限界法："><a href="#常见的两种分支限界法：" class="headerlink" title="常见的两种分支限界法："></a>常见的两种分支限界法：</h2><ul>
+<li>队列式 (FIFO)分支限界法：从活结点表中取出结点的顺序与加入结点的顺序相同，因此活结点表的性质与队列相同；</li>
+<li>优先队列(代价最小或效益最大)分支限界法：每个结点都有一个对应的耗费或收益，以此决定结点的优先级：<ul>
+<li>如果查找一个具有最小耗费的解，则活结点可用小根堆来建立，下一个扩展结点就是具有最小耗费的活结点；</li>
+<li>如果希望搜索一个具有最大收益的解，则可用大根堆来构造活结点表，下一个扩展结点是具有最大收益的活结点。</li>
+</ul>
+</li>
+</ul>
+<h2 id="解空间树的动态搜索"><a href="#解空间树的动态搜索" class="headerlink" title="解空间树的动态搜索"></a>解空间树的动态搜索</h2><p>分支限界法首先确定一个合理的限界函数，并根据限界函数确定目标函数的界[down, up]；然后按照广度优先策略遍历问题的解空间树，在某一分支上，依次搜索该结点的所有孩子结点，分别估算这些孩子结点的目标函数的可能取值 (注意：对于最小化问题，估算结点的down，对最大化问题，估算结点的up)。<strong>如果某孩子结点的目标函数值超出目标函数的上界或下界，则将其丢弃(即基于该结点生成的解不会比目前已得的更好)，否则入待处理表</strong>。</p>
+<img src = "./image/8-2.png" width = 500>
+
+<img src = "./image/8-1.png" width = 500>
+
+<img src = "./image/8-3.png" width = 500>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/9.%20%E9%9A%8F%E6%9C%BA%E5%8C%96/</url>
+    <content><![CDATA[<h1 id="随机化"><a href="#随机化" class="headerlink" title="随机化"></a>随机化</h1><h2 id="常见的随机算法"><a href="#常见的随机算法" class="headerlink" title="常见的随机算法"></a>常见的随机算法</h2><p>常见的随机算法分为4类：</p>
+<ol>
+<li>数值随机化算法：常用于数值问题的求解，<strong>所得到的往往是近似解</strong>，解的精度随着计算时间增加而不断提高；</li>
+<li>蒙特卡罗算法：用于求问题的准确解。该方法<strong>总可以得到问题的解，但是该解未必是正确</strong>的。求得正确解的概率依赖于算法所用的时间。比较难以判断解是否正确；</li>
+<li>拉斯维加斯算法：<strong>不会得到不正确的解，但是有时会找不到解。</strong>找到正确解的概率随着所用的计算时间的增加而提高。对任一实例，反复调用算法求解足够多次，可使求解失效的概率任意小；</li>
+<li>舍伍德算法：<strong>总能求得问题的一个解，且所求得的解总是正确的。</strong>当一个确定性算法最坏情况下的计算复杂性与其在平均情况下的计算复杂性有较大差别时，可在这个确定性算法中引入随机性将它改造成一个舍伍德算法，消除或者减少这种差别。核心思想：设法消除最坏情形行为与特定实例之间的关联性。</li>
+</ol>
+<img src = "./image/9-1.png" width = 500>
+
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/5.%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/</url>
+    <content><![CDATA[<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="动态规划的目的与思想"><a href="#动态规划的目的与思想" class="headerlink" title="动态规划的目的与思想"></a>动态规划的目的与思想</h2><p>动态规划的思想实质上是<strong>分治思想</strong>和<strong>解决冗余</strong>。<br>在分治法解决问题时，我们常常要求子问题之间没有重叠（公共）子问题，而常见的许多问题的子问题往往<strong>不是相互独立的</strong>，因此在用分治法求解时，这些重叠被多次计算。<br>动态规划的基本思想也是将大问题分解成小问题，但用一个表<strong>保存已解决的子问题的答案</strong>，在需要时直接使用，<strong>避免了大量重复的计算</strong>，从而得到多项式时间算法。</p>
+<h2 id="动态规划的基本原理"><a href="#动态规划的基本原理" class="headerlink" title="动态规划的基本原理"></a>动态规划的基本原理</h2><h3 id="可用动态规划解决-多阶段决策问题-多阶段决策问题-的特点："><a href="#可用动态规划解决-多阶段决策问题-多阶段决策问题-的特点：" class="headerlink" title="可用动态规划解决[多阶段决策问题](# 多阶段决策问题)的特点："></a>可用动态规划解决[多阶段决策问题](# 多阶段决策问题)的特点：</h3><ol>
+<li>多个阶段</li>
+<li>每个阶段多个选择</li>
+<li>当前阶段的状态确定后的决策不受历史决策影响</li>
+</ol>
+<p>时许问题以时间划分阶段，非时序“静态”问题以空间等划分阶段，相邻状态之间满足一定<strong>递推关系</strong>，做出决策之后由递推关系得到后一个状态。<br><img src = "./image/5-1.png" width = 500></p>
+<h3 id="动态规划的基础：-贝尔曼最优性定理-贝尔曼最优性原理-Principle-of-Optimality"><a href="#动态规划的基础：-贝尔曼最优性定理-贝尔曼最优性原理-Principle-of-Optimality" class="headerlink" title="动态规划的基础：**[贝尔曼最优性定理](# 贝尔曼最优性原理(Principle of Optimality))**"></a>动态规划的基础：**[贝尔曼最优性定理](# 贝尔曼最优性原理(Principle of Optimality))**</h3><h3 id="动态规划求解的特点："><a href="#动态规划求解的特点：" class="headerlink" title="动态规划求解的特点："></a>动态规划求解的特点：</h3><ol>
+<li>最优子结构，每一步都是最优的<br>每个决策都选择最优的决策。</li>
+<li>无后效性<br>某个阶段上过程状态一直，之后的决策与过程在此阶段以前所经历过的状态无关，“人们只在乎能不能从现在的你身上捞到什么，而不会在意你是怎么得到这一切的”。</li>
+<li>记录历史阶段的结果<br>如果我们知道8个1相加等于8，那么求9个1就不需要9个1想加了，直接拿8去加1就好了</li>
+</ol>
+<h2 id="动态规划求解步骤"><a href="#动态规划求解步骤" class="headerlink" title="动态规划求解步骤"></a>动态规划求解步骤</h2><h3 id="利用动态规划求解问题的前提："><a href="#利用动态规划求解问题的前提：" class="headerlink" title="利用动态规划求解问题的前提："></a>利用动态规划求解问题的前提：</h3><ul>
+<li>证明问题<strong>满足最优性原理</strong></li>
+<li>找到问题<strong>状态的递推关系式</strong>（dp状态转移方程）</li>
+</ul>
+<h3 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h3><p>理论上基本步骤：</p>
+<ol>
+<li>找出最优解的性质，并刻画其结构特征 –&gt; 划分子问题</li>
+<li>递归地定义最优解 –&gt; 给出最优解的递归式</li>
+<li>自底而上的方式计算最优解的值</li>
+<li>优计算出的结果构造一个最优解</li>
+</ol>
+<p>实际上基本步骤：</p>
+<ol>
+<li>正确划分阶段，选择阶段变量$k$. </li>
+<li>对每个阶段，正确选择状态变量$x_k$. 选择状态变量时应当注意两点：一是要能够正确描述受控过程的演变特性，二是要满足无后效性.</li>
+<li>对每个阶段，正确选择决策变量$u_k$ . </li>
+<li>列出相邻阶段的状态转移方程： $x_{k+1}= T_k(x_k, u_k)$. </li>
+<li>列出按阶段可分的准则函数$V_{1,n}$ .<blockquote>
+<p>咳咳，啥意思呢，大概是这么个过程</p>
+<pre><code class="mermaid">flowchart LR
+     A(求最优解)
+     B(能否动态规划)
+     ｃ　找状态转移方程
+     ｄ　找临界条件
+
+</code></pre>
+</blockquote>
+</li>
+</ol>
+<h2 id="动态规划的意义"><a href="#动态规划的意义" class="headerlink" title="动态规划的意义"></a>动态规划的意义</h2><p>动态规划主要用于求解<strong>以时间划分阶段的动态过程的优化问题</strong>，但是一些与时间无关的静态规划（<strong>如线性规划、非线性规划</strong>），可以<strong>人为地引进时间因素</strong>，把它视为多阶段决策过程，也可以用动态规划方法方便地求解。</p>
+<p>应用：<br>动态规划问世以来，在经济管理、生产调度、工程技术和最优控制等方面得到了广泛的应用。例如最短路线、库存管理、资源分配、设备更新、排序、装载等问题。</p>
+<h2 id="多阶段决策问题"><a href="#多阶段决策问题" class="headerlink" title="多阶段决策问题"></a>多阶段决策问题</h2><ul>
+<li>多阶段决策过程：<br>问题的活动过程分为若干相互联系的阶段，<strong>任一阶段$i$以后的行为仅依赖于$i$阶段的过程状态</strong>，而与i阶段之前的过程如何达到这种状态的方式无关。在<strong>每一个阶段都要做出决策</strong>，这一系列的决策称为多阶段决策过程 (Multistep Decision Process, MDP)。</li>
+<li>最优化问题：<br>问题的每一阶段可能有多种可供选择的决策，必须从中选择一种决策。各阶段的决策构成一个决策序列。决策序列不同，所导致的问题的结果可能不同。</li>
+<li>多阶段决策的最优化问题：<br>求能够获得问题<strong>最优解</strong>的决策序列— —最优决策序列。</li>
+</ul>
+<h2 id="多阶段决策问题的求解策略"><a href="#多阶段决策问题的求解策略" class="headerlink" title="多阶段决策问题的求解策略"></a>多阶段决策问题的求解策略</h2><ol>
+<li>枚举法：穷举所有可能的决策序列，从中选取能获得最优解的决策序列。</li>
+<li>动态规划：20世纪50年代初美国数学家R. E. Bellman等人在研究多阶段决策过程的优化问题时，提出了著名的<strong>最优化原理(principle of optimality，常被称为贝尔曼最优性原理)<strong>，把多阶段过程转化为</strong>一系列单阶段问题</strong>，创立了解决这类过程优化问题的新方法——<strong>动态规划</strong>。1957年出版的个人专著《Dynamic Programming》，这是该领域的第一本著作。</li>
+</ol>
+<h2 id="贝尔曼最优性原理-Principle-of-Optimality"><a href="#贝尔曼最优性原理-Principle-of-Optimality" class="headerlink" title="贝尔曼最优性原理(Principle of Optimality)"></a>贝尔曼最优性原理(Principle of Optimality)</h2><p>过程的<strong>最优决策序列</strong>具有如下性质：无论过程的<strong>初始状态</strong>和<strong>初始决策</strong>是什么，其余的决策都必须相对于初始决策所产生的状态构成一个<strong>最优决策序列</strong>。</p>
+<p>贝尔曼最优性原理决定了[动态规划求解的特点](# 1.3 动态规划求解的特点：)</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/Sort/</url>
+    <content><![CDATA[<h1 id="Java-实现排序算法"><a href="#Java-实现排序算法" class="headerlink" title="Java 实现排序算法"></a>Java 实现排序算法</h1><h1 align = "right">created by Lzkwyy</h1>
+
+<h2 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h2><p>本文提供有关各种排序算法的<strong>Java</strong>实现<br>图形化排序可以看看*<a href="https://visualgo.net/en/sorting">VisuAlgo</a>*</p>
+<blockquote>
+<p>需要实现终端输入可以使用如下代码</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Scanner input = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span> len = input.nextInt();</span><br><span class="line"><span class="keyword">int</span>[] a = <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++) &#123;</span><br><span class="line">	a[i] = input.nextInt();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<hr>
+<h3 id="1-冒泡排序"><a href="#1-冒泡排序" class="headerlink" title="1.冒泡排序"></a>1.冒泡排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//冒泡排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length - <span class="number">1</span>;i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; arr.length - <span class="number">1</span> - i;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &gt; arr[j + <span class="number">1</span>]) &#123;</span><br><span class="line">                temp = arr[j];</span><br><span class="line">                arr[j] = arr[j + <span class="number">1</span>];</span><br><span class="line">                arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="2-选择排序"><a href="#2-选择排序" class="headerlink" title="2.选择排序"></a>2.选择排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//选择排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">sectionSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> min;</span><br><span class="line">    <span class="keyword">int</span> temp;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; arr.length - <span class="number">1</span>;i++) &#123;</span><br><span class="line">        min = i;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = i + <span class="number">1</span>;j &lt; arr.length;j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; arr[min]) &#123;</span><br><span class="line">                min = j;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        temp = arr[min];</span><br><span class="line">        arr[min] = arr[i];</span><br><span class="line">        arr[i] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="3-插入排序"><a href="#3-插入排序" class="headerlink" title="3.插入排序"></a>3.插入排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//插入排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">insertSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> next, i, j;</span><br><span class="line">    <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; arr.length - <span class="number">1</span>;i++) &#123;</span><br><span class="line">        next = arr[i + <span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span> (j = i;j &gt;= <span class="number">0</span>;j--) &#123;</span><br><span class="line">            <span class="keyword">if</span> (next &lt; arr[j]) &#123;</span><br><span class="line">                arr[j + <span class="number">1</span>] = arr[j];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        arr[j + <span class="number">1</span>] = next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="4-归并排序"><a href="#4-归并排序" class="headerlink" title="4.归并排序"></a>4.归并排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//归并排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] temp = <span class="keyword">new</span> <span class="keyword">int</span>[arr.length];</span><br><span class="line">    internalMergeSort(arr, temp, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">internalMergeSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span>[] temp, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">int</span> middle = (left + right) / <span class="number">2</span>;</span><br><span class="line">        internalMergeSort(arr, temp, left, middle); <span class="comment">//先排序好左边</span></span><br><span class="line">        internalMergeSort(arr, temp, middle + <span class="number">1</span>, right);    <span class="comment">//再排序右边</span></span><br><span class="line">        mergeSortedArray(arr, temp, left, middle, right);   <span class="comment">//合并左右</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">mergeSortedArray</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span>[] temp, <span class="keyword">int</span> left, <span class="keyword">int</span> middle, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> i = left;</span><br><span class="line">    <span class="keyword">int</span> j = middle + <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">int</span> k = left;</span><br><span class="line">    <span class="keyword">while</span> (i &lt;= middle &amp;&amp; j &lt;= right) &#123;</span><br><span class="line">        <span class="keyword">if</span> (arr[i] &lt;= arr[j]) &#123; temp[k++] = arr[i++]; &#125;</span><br><span class="line">        <span class="keyword">else</span> &#123; temp[k++] = arr[j++]; &#125;</span><br><span class="line">    &#125;   <span class="comment">//合并开始</span></span><br><span class="line">    <span class="keyword">while</span> (i &lt;= middle) &#123; temp[k++] = arr[i++]; &#125;</span><br><span class="line">    <span class="keyword">while</span> (j &lt;= right) &#123; temp[k++] = arr[j++]; &#125;    <span class="comment">//把没合并好的放进去</span></span><br><span class="line">    <span class="keyword">while</span> (k &gt; <span class="number">0</span>) &#123; arr[--k] = temp[k]; &#125;   <span class="comment">//排序好的数据放回原数字</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="5-快速排序"><a href="#5-快速排序" class="headerlink" title="5.快速排序"></a>5.快速排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//快速排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">quickSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    qSort(arr, <span class="number">0</span>, arr.length - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">qSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (left &gt;= right) <span class="keyword">return</span>;</span><br><span class="line">    <span class="keyword">int</span> pivot = partition(arr, left, right);</span><br><span class="line">    qSort(arr, left, pivot);</span><br><span class="line">    qSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">partition</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> left, <span class="keyword">int</span> right)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> pivot = arr[left];</span><br><span class="line">    <span class="keyword">while</span> (left &lt; right) &#123;</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[right] &gt;= pivot) &#123; right--; &#125;</span><br><span class="line">        arr[left] = arr[right];</span><br><span class="line">        <span class="keyword">while</span> (left &lt; right &amp;&amp; arr[left] &lt;= pivot) &#123; left++; &#125;</span><br><span class="line">        arr[right] = arr[left];</span><br><span class="line">    &#125;</span><br><span class="line">    arr[left] = pivot;</span><br><span class="line">    <span class="keyword">return</span> left;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+<hr>
+<h3 id="6-希尔排序"><a href="#6-希尔排序" class="headerlink" title="6.希尔排序"></a>6.希尔排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//希尔排序</span></span><br><span class="line">    <span class="comment">//Donald Shell增量</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> next, i, j, delta;</span><br><span class="line">    <span class="keyword">for</span> (delta = arr.length/<span class="number">2</span>;delta &gt;= <span class="number">1</span>;delta /= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; arr.length - delta;i++) &#123;</span><br><span class="line">            next = arr[i + delta];</span><br><span class="line">            <span class="keyword">for</span> (j = i;j &gt;= <span class="number">0</span>;j -= delta) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; next) &#123;</span><br><span class="line">                    arr[j + delta] = arr[j];</span><br><span class="line">                &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j + delta] = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">    <span class="comment">//O(n3/2) by Knuth。Knuth增量算法优化</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">shellSort2</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> delta = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (delta &lt; arr.length/<span class="number">3</span>) &#123;</span><br><span class="line">        delta = delta * <span class="number">3</span> + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> i, j, next;</span><br><span class="line">    <span class="keyword">for</span> (;delta &gt;= <span class="number">1</span>;delta /= <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">for</span> (i = <span class="number">0</span>;i &lt; arr.length - delta;i++) &#123;</span><br><span class="line">            next = arr[i + delta];</span><br><span class="line">            <span class="keyword">for</span> (j = i;j &gt;= <span class="number">0</span>;j -= delta) &#123;</span><br><span class="line">                <span class="keyword">if</span> (arr[j] &gt; next) &#123;</span><br><span class="line">                    arr[j + delta] = arr[j];</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            arr[j + delta] = next;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="7-堆排序"><a href="#7-堆排序" class="headerlink" title="7.堆排序"></a>7.堆排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//堆排序</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ArrayHeap</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] arr;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ArrayHeap</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123; <span class="keyword">this</span>.arr = arr; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getParentIndex</span><span class="params">(<span class="keyword">int</span> child)</span> </span>&#123; <span class="keyword">return</span> (child - <span class="number">1</span>) / <span class="number">2</span>; &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">getLeftChildIndex</span><span class="params">(<span class="keyword">int</span> parent)</span> </span>&#123; <span class="keyword">return</span> parent * <span class="number">2</span> + <span class="number">1</span>; &#125;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] getArr() &#123; <span class="keyword">return</span> arr; &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> j)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> temp;</span><br><span class="line">        temp = arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">heapAdjust</span><span class="params">(<span class="keyword">int</span> i, <span class="keyword">int</span> len)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> left, right, j;</span><br><span class="line">        left = getLeftChildIndex(i);</span><br><span class="line">        <span class="keyword">while</span> (left &lt;= len) &#123;</span><br><span class="line">            right = left + <span class="number">1</span>;</span><br><span class="line">            j = left;</span><br><span class="line">            <span class="keyword">if</span> (j &lt; len &amp;&amp; arr[left] &lt; arr[right]) &#123;</span><br><span class="line">                j++;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (arr[i] &lt; arr[j]) &#123;</span><br><span class="line">                swap(i, j);</span><br><span class="line">                i = j;</span><br><span class="line">                left = getLeftChildIndex(i);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> &#123; <span class="keyword">break</span>; &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sort</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> last = arr.length - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = getParentIndex(last);i &gt;= <span class="number">0</span>;i--) &#123;</span><br><span class="line">            heapAdjust(i, last);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (last &gt;= <span class="number">0</span>) &#123;</span><br><span class="line">            swap(<span class="number">0</span>, last--);</span><br><span class="line">            heapAdjust(<span class="number">0</span>, last);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>}</p>
+<hr>
+<h3 id="8-计数排序"><a href="#8-计数排序" class="headerlink" title="8.计数排序"></a>8.计数排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//计数排序 only for integer but not for float</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">countSort</span><span class="params">(<span class="keyword">int</span>[] arr, <span class="keyword">int</span> max, <span class="keyword">int</span> min)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span>[] countList = <span class="keyword">new</span> <span class="keyword">int</span>[max - min + <span class="number">1</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; countList.length;i++) &#123;</span><br><span class="line">        countList[i] = <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i:arr) &#123;</span><br><span class="line">        countList[i - min]++;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="comment">//        for (int i = 0;i &lt; countList.length;i++) &#123;</span></span><br><span class="line"><span class="comment">//            System.out.println((i+min) + &quot; count:&quot; + countList[i]);</span></span><br><span class="line"><span class="comment">//        &#125;</span></span><br><span class="line">    <span class="keyword">int</span> arrIndex = <span class="number">0</span>, countListIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (countListIndex &lt; countList.length &amp;&amp; arrIndex &lt; arr.length) &#123;</span><br><span class="line">        <span class="keyword">while</span> (countList[countListIndex] &gt; <span class="number">0</span> &amp;&amp; arrIndex &lt; arr.length) &#123;</span><br><span class="line">            arr[arrIndex] = countListIndex + min;</span><br><span class="line">            arrIndex++;</span><br><span class="line">            countList[countListIndex]--;</span><br><span class="line">        &#125;</span><br><span class="line">        countListIndex++;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="9-桶排序"><a href="#9-桶排序" class="headerlink" title="9.桶排序"></a>9.桶排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//桶排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bucketSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxValue = arr[<span class="number">0</span>], minValue = arr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i:arr) &#123;</span><br><span class="line">        <span class="keyword">if</span> (i &gt; maxValue) &#123; maxValue = i; &#125;</span><br><span class="line">        <span class="keyword">if</span> (i &lt; minValue) &#123; minValue = i; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 未实现智能定数量</span></span><br><span class="line">    <span class="keyword">int</span> bucketNum = <span class="number">5</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> step = (maxValue - minValue) / bucketNum + <span class="number">1</span>;</span><br><span class="line">    ArrayList&lt;ArrayList&lt;Integer&gt;&gt; bucketList = <span class="keyword">new</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; bucketNum;i++) &#123;</span><br><span class="line">        bucketList.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> index;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i : arr) &#123;</span><br><span class="line">        index = i / step;</span><br><span class="line">        bucketList.get(index).add(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> rawIndex = <span class="number">0</span>, processedIndex = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> (ArrayList&lt;Integer&gt; bucketArray : bucketList) &#123;</span><br><span class="line">        Collections.sort(bucketArray);</span><br><span class="line">        <span class="keyword">for</span> (processedIndex = <span class="number">0</span>;processedIndex &lt; bucketArray.size();processedIndex++) &#123;</span><br><span class="line">            arr[rawIndex] = bucketArray.get(processedIndex);</span><br><span class="line">            rawIndex++;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="10-基数排序"><a href="#10-基数排序" class="headerlink" title="10.基数排序"></a>10.基数排序</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//基数排序</span></span><br><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">radixSort</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> maxValue = arr[<span class="number">0</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i:arr) &#123;</span><br><span class="line">        <span class="keyword">if</span>(i &gt; maxValue) &#123; maxValue = i; &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">int</span> level = maxValue;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>;(<span class="keyword">int</span>) (maxValue / (Math.pow(<span class="number">10</span>, i))) % <span class="number">10</span> &gt; <span class="number">0</span>;i++) &#123;</span><br><span class="line">        ArrayList&lt;ArrayList&lt;Integer&gt;&gt; radixList = <span class="keyword">new</span> ArrayList&lt;ArrayList&lt;Integer&gt;&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; <span class="number">10</span>;j++) &#123;</span><br><span class="line">            radixList.add(<span class="keyword">new</span> ArrayList&lt;Integer&gt;());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> num:arr) &#123;</span><br><span class="line">            <span class="keyword">int</span> index = (<span class="keyword">int</span>) (num / Math.pow(<span class="number">10</span>,i)) % <span class="number">10</span>;  <span class="comment">//先除以10再取模即可到达取高位效果</span></span><br><span class="line">            radixList.get(index).add(num);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(i);</span><br><span class="line">        <span class="keyword">int</span> rawIndex = <span class="number">0</span>, processedIndex = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (ArrayList&lt;Integer&gt; radixArray : radixList) &#123;</span><br><span class="line">            Collections.sort(radixArray);</span><br><span class="line">            <span class="keyword">for</span> (processedIndex = <span class="number">0</span>;processedIndex &lt; radixArray.size();processedIndex++) &#123;</span><br><span class="line">                arr[rawIndex] = radixArray.get(processedIndex);</span><br><span class="line">                rawIndex++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/%E5%89%8D%E8%A8%80/</url>
+    <content><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>本文为本人对暨南大学甘文生老师于2021-2020学年上学期授课ppt的摘录及理解批注所成。在老师的ppt的基础上，我根据个人愚见进行了一定地修改，敬请斧正。</p>
+<hr>
+<h2 id="目标："><a href="#目标：" class="headerlink" title="目标："></a>目标：</h2><ul>
+<li>学会发现问题、具备抽象描述、解决实际问题的能力</li>
+<li>掌握算法的基本原理、设计技巧</li>
+<li>掌握算法的复杂度分析</li>
+<li>学会算法设计与分析的典型方法，并进行算法的设计</li>
+<li>具备分析算法效率的能力</li>
+<li>……</li>
+</ul>
+<hr>
+<h2 id="学习方法"><a href="#学习方法" class="headerlink" title="学习方法"></a>学习方法</h2><ul>
+<li>多读</li>
+<li>多思考</li>
+<li>多编程</li>
+</ul>
+<hr>
+<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="程序-数据结构-算法"><a href="#程序-数据结构-算法" class="headerlink" title="程序 = 数据结构 + 算法"></a>程序 = 数据结构 + 算法</h2><p>再细一点可以写做，程序 = 数据结构 + 算法 + 语言 + 程序设计方法</p>
+<blockquote>
+<p>数据结构是算法实现的基础,算法总是依赖于数据结构来实现<br>算法是灵魂，数据是加工对象，语言是工具，<br>算法在很大程度上收到数据结构的限制，甚至在某些情况下数据结构起决定性的作用</p>
+</blockquote>
+<h2 id="程序设计流程："><a href="#程序设计流程：" class="headerlink" title="程序设计流程："></a>程序设计流程：</h2><ul>
+<li>表示要处理的数据（包括输入的数据和输出的数据）</li>
+<li>设计相应的算法来实现程序的功能</li>
+<li>最后使用某一门程序设计语言来进行编程</li>
+<li>综合起来，便构成一个实实在在的程序</li>
+</ul>
+<p>算法</p>
+<h2 id="人工智能三要素"><a href="#人工智能三要素" class="headerlink" title="人工智能三要素"></a>人工智能三要素</h2><ul>
+<li>数据</li>
+<li>算法</li>
+<li>算力</li>
+</ul>
+<h2 id="算法的要素"><a href="#算法的要素" class="headerlink" title="算法的要素"></a>算法的要素</h2><p>算法由操作、控制结构、数据结构三要素组成</p>
+<ul>
+<li>操作<ul>
+<li>算术运算：加、减、乘、除</li>
+<li>关系比较：大于、小于、等于、不等于</li>
+<li>逻辑运算：与、或、非</li>
+<li>数据传送：输入、输出、赋值</li>
+</ul>
+</li>
+<li>控制结构<ul>
+<li>顺序结构</li>
+<li>选择结构</li>
+<li>循环结构</li>
+</ul>
+</li>
+</ul>
+<h2 id="推荐书目"><a href="#推荐书目" class="headerlink" title="推荐书目"></a>推荐书目</h2><p><img src="./image/books.png" alt="books"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>a</title>
+    <url>/2022/01/18/%E6%8E%A8%E8%8D%90%E8%BE%85%E5%8A%A9%E5%B7%A5%E5%85%B7/</url>
+    <content><![CDATA[<h1 id="辅助工具"><a href="#辅助工具" class="headerlink" title="辅助工具"></a>辅助工具</h1><h2 id="算法图形化网站"><a href="#算法图形化网站" class="headerlink" title="算法图形化网站"></a>算法图形化网站</h2><p><a href="https://visualgo.net/en">visualgo</a></p>
 ]]></content>
   </entry>
 </search>

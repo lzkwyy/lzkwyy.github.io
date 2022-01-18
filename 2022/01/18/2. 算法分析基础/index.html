@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="算法分析基础 2.1 算法设计和分析过程 *** ## 2.2 求解过程说明     2.3 算法分析框架 算法分析是指对一个算法所需要的资源进行预测，通常是对计算时间和空间的预测。算法饭呢西的目的是为了从多个候选算法中选择一个最有效的算法，或去掉较差的算法。  进行算法分析之前，首先要确定有关实现技术的模型，通常采用随机存取机（RAM）计算模型。假设：  指令是逐条执行的，没有并发操作 包含常用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="a">
+<meta property="og:url" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="lzkwyy的小屋">
+<meta property="og:description" content="算法分析基础 2.1 算法设计和分析过程 *** ## 2.2 求解过程说明     2.3 算法分析框架 算法分析是指对一个算法所需要的资源进行预测，通常是对计算时间和空间的预测。算法饭呢西的目的是为了从多个候选算法中选择一个最有效的算法，或去掉较差的算法。  进行算法分析之前，首先要确定有关实现技术的模型，通常采用随机存取机（RAM）计算模型。假设：  指令是逐条执行的，没有并发操作 包含常用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/process.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-2.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-9.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-8.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-3.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-4.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-5.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-6.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-7.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-10.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-11.png">
+<meta property="og:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/2-12.png">
+<meta property="article:published_time" content="2022-01-18T15:15:10.000Z">
+<meta property="article:modified_time" content="2022-01-18T15:17:14.800Z">
+<meta property="article:author" content="lzkwyy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/image/process.png">
+
+<link rel="canonical" href="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>a | lzkwyy的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lzkwyy的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lzkwyy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzkwyy的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          a
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-18 23:15:10 / 修改时间：23:17:14" itemprop="dateCreated datePublished" datetime="2022-01-18T23:15:10+08:00">2022-01-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="算法分析基础"><a href="#算法分析基础" class="headerlink" title="算法分析基础"></a>算法分析基础</h1><hr>
+<h2 id="2-1-算法设计和分析过程"><a href="#2-1-算法设计和分析过程" class="headerlink" title="2.1 算法设计和分析过程"></a>2.1 算法设计和分析过程</h2><img src="./image/process.png" width = 500>
+***
+## 2.2 求解过程说明
+
+<img src="./image/2-2.png" width = 500>
+
+<hr>
+<h2 id="2-3-算法分析框架"><a href="#2-3-算法分析框架" class="headerlink" title="2.3 算法分析框架"></a>2.3 算法分析框架</h2><ul>
+<li><p>算法分析是指对一个算法所需要的资源进行预测，通常是对计算时间和空间的预测。算法饭呢西的目的是为了从多个候选算法中选择一个最有效的算法，或去掉较差的算法。</p>
+</li>
+<li><p>进行算法分析之前，首先要确定有关实现技术的模型，通常采用<strong>随机存取机（RAM）</strong>计算模型。假设：</p>
+<ul>
+<li>指令是逐条执行的，没有并发操作</li>
+<li>包含常用指令，每条指令执行时间为常量</li>
+<li>数据类型有整数类型和浮点实数类型</li>
+<li>不存在存储器层级进行建模</li>
+</ul>
+</li>
+<li><p>默认情况下，算法分析是指对算法<strong>时间效率</strong>的分析</p>
+</li>
+<li><p>算法运行时间是指特定输入时，所执行的基本操作数</p>
+<ul>
+<li>输入数据的<strong>规模</strong>和<strong>分布</strong>是影响算法运行时间的两个主要因素</li>
+</ul>
+</li>
+<li><p>算法时间效率分析框架</p>
+<ul>
+<li>算法时间效率用算法输入规模n为参数的函数来度量;</li>
+<li>对输入规模相同的情况下，有些算法的时间效率会有明显差异.对于这样的算法要区分**最坏运行时间(时间复杂度)**、 最佳运行时间、平均运行时间    </li>
+<li>对于大规模输入，通常只关乎运行<strong>时间效率函数的增长率</strong>，即只关注函数的高阶项，而忽略低阶项和高阶项系数。</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-4-度量算法效率的方法"><a href="#2-4-度量算法效率的方法" class="headerlink" title="2.4 度量算法效率的方法"></a>2.4 度量算法效率的方法</h2><ul>
+<li><p>事后统计的方法</p>
+<ul>
+<li>事后统计法需要先将算法实现，然后测算其时间和空间的开销。<blockquote>
+<p>首先，这种方法必须将算法转变为可执行的代码，其次，时间开销和空间开销往往以来与计算机的软件和硬件配置，这种方式测试出来的时空复杂度不具备普适性，很容易掩盖算法本身的优劣。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>事前分析估算的方法</p>
+<ul>
+<li>依据的算法选用何种策略</li>
+<li>问题的规模</li>
+<li>书写程序的语言</li>
+<li>编辑程序所产生的代码的质量</li>
+<li>机器执行指令的速度</li>
+</ul>
+</li>
+<li><p>算法的存储量</p>
+<ul>
+<li>输入数据所占空间</li>
+<li>程序本身所占空间</li>
+<li>辅助变量所占空间</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-5-复杂度分析"><a href="#2-5-复杂度分析" class="headerlink" title="2.5 复杂度分析"></a>2.5 复杂度分析</h2><blockquote>
+<p>这部分可参考<a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1769988">时间复杂度与空间复杂度的计算</a></p>
+</blockquote>
+<h3 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a><strong>时间复杂度</strong></h3><ul>
+<li>用于评估执行程序所消耗的时间，可以估算出程序对处理器的使用程度。</li>
+<li>一个算法通常存在最好、平均、最坏三种情况，我们一般关注的是最坏情况，代表的是算法运行时间的上界。</li>
+<li>常见的算法时间复杂度由小到大依次为：Ο(1)＜Ο(log n)＜Ο(n)＜Ο(nlog n)＜Ο(n2)＜Ο(n3)＜…＜Ο(2^n)＜Ο(n!)</li>
+</ul>
+<img src="./image/2-9.png" width = 500>
+
+<img src="./image/2-8.png" width = 500>
+
+
+
+<h4 id="时间复杂度的渐进表示法"><a href="#时间复杂度的渐进表示法" class="headerlink" title="时间复杂度的渐进表示法:"></a>时间复杂度的渐进表示法:</h4><img src="./image/2-3.png" width = 500>
+
+<h4 id="算法的执行时间"><a href="#算法的执行时间" class="headerlink" title="算法的执行时间"></a>算法的执行时间</h4><p>$$<br>算法的执行时间 = \sum 原操作的执行次数 * 原操作的执行时间<br>$$</p>
+<blockquote>
+<p>语句的<strong>频度</strong>指的是该语句重复执行的次数。一个算法中<strong>所有语句的频度之和</strong>(由于语句执行时间接近，故默认为同一执行时间)构成该算法的运行时间。</p>
+</blockquote>
+<img src="./image/2-4.png" width = 500>
+
+<h4 id="分析算法时间复杂度的基本方法"><a href="#分析算法时间复杂度的基本方法" class="headerlink" title="分析算法时间复杂度的基本方法"></a>分析算法时间复杂度的基本方法</h4><ul>
+<li>找出语句频度最大的那条语句作为基本语句（循环嵌套<strong>最深层</strong>的语句）</li>
+<li>计算基本语句的频度得到问题规模n的某个函数$f(x)$</li>
+<li>取其数量级用“O”表示（大O表示法）</li>
+</ul>
+<img src="./image/2-5.png" width = 500>
+
+<img src="./image/2-6.png" width = 500>
+
+<img src="./image/2-7.png" width = 500>
+
+<h4 id="算法时间复杂度的其他表示"><a href="#算法时间复杂度的其他表示" class="headerlink" title="算法时间复杂度的其他表示"></a>算法时间复杂度的其他表示</h4><img src="./image/2-10.png" width = 500>
+
+<h3 id="空间复杂度"><a href="#空间复杂度" class="headerlink" title="空间复杂度"></a><strong>空间复杂度</strong></h3><ul>
+<li>用于评估执行程序所占用的内存空间，可以估算出程序对计算机内存的使用程度。</li>
+<li>这里的内存通常指<strong>辅助变量所占空间</strong>（辅助数据结构、函数栈等），是对一个算法在运行过程中临时占用的存储空间大小的量度。</li>
+</ul>
+<h4 id="渐进空间复杂度"><a href="#渐进空间复杂度" class="headerlink" title="渐进空间复杂度"></a>渐进空间复杂度</h4><blockquote>
+<p>跟渐进时间复杂度差不多的啦</p>
+</blockquote>
+<img src="./image/2-11.png" width = 500>
+
+<img src="./image/2-12.png" width = 500>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/18/10.%20np%E7%90%86%E8%AE%BA/" rel="prev" title="a">
+      <i class="fa fa-chevron-left"></i> a
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/18/1.%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" rel="next" title="a">
+      a <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80"><span class="nav-number">1.</span> <span class="nav-text">算法分析基础</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-%E7%AE%97%E6%B3%95%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%88%86%E6%9E%90%E8%BF%87%E7%A8%8B"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 算法设计和分析过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E6%A1%86%E6%9E%B6"><span class="nav-number">1.2.</span> <span class="nav-text">2.3 算法分析框架</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%BA%A6%E9%87%8F%E7%AE%97%E6%B3%95%E6%95%88%E7%8E%87%E7%9A%84%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">2.4 度量算法效率的方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-5-%E5%A4%8D%E6%9D%82%E5%BA%A6%E5%88%86%E6%9E%90"><span class="nav-number">1.4.</span> <span class="nav-text">2.5 复杂度分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.4.1.</span> <span class="nav-text">时间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E6%B8%90%E8%BF%9B%E8%A1%A8%E7%A4%BA%E6%B3%95"><span class="nav-number">1.4.1.1.</span> <span class="nav-text">时间复杂度的渐进表示法:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E7%9A%84%E6%89%A7%E8%A1%8C%E6%97%B6%E9%97%B4"><span class="nav-number">1.4.1.2.</span> <span class="nav-text">算法的执行时间</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%96%B9%E6%B3%95"><span class="nav-number">1.4.1.3.</span> <span class="nav-text">分析算法时间复杂度的基本方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AE%97%E6%B3%95%E6%97%B6%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6%E7%9A%84%E5%85%B6%E4%BB%96%E8%A1%A8%E7%A4%BA"><span class="nav-number">1.4.1.4.</span> <span class="nav-text">算法时间复杂度的其他表示</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.4.2.</span> <span class="nav-text">空间复杂度</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%90%E8%BF%9B%E7%A9%BA%E9%97%B4%E5%A4%8D%E6%9D%82%E5%BA%A6"><span class="nav-number">1.4.2.1.</span> <span class="nav-text">渐进空间复杂度</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lzkwyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzkwyy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

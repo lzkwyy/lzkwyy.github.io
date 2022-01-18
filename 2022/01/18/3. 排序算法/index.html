@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="排序算法对比各大排序算法 先来点真实的~这就是你们能学到的所有排序    排序问题：把一系列数据按非递增的顺序排序输入：n个输入数$&lt;a_1,a_2,…,a_n&gt;$输出：输入系列的有个排序$&lt;a_1’,a_2’,…,a_n’&gt;$，使得$a_1’{\leq}a_2’{\leq},…,{\leq}a_n’$  输入数据的结构可以多种多样，如n元数组、链表等，输出按需求而定。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="a">
+<meta property="og:url" content="http://example.com/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/index.html">
+<meta property="og:site_name" content="lzkwyy的小屋">
+<meta property="og:description" content="排序算法对比各大排序算法 先来点真实的~这就是你们能学到的所有排序    排序问题：把一系列数据按非递增的顺序排序输入：n个输入数$&lt;a_1,a_2,…,a_n&gt;$输出：输入系列的有个排序$&lt;a_1’,a_2’,…,a_n’&gt;$，使得$a_1’{\leq}a_2’{\leq},…,{\leq}a_n’$  输入数据的结构可以多种多样，如n元数组、链表等，输出按需求而定。">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image/3-1.png">
+<meta property="article:published_time" content="2022-01-18T15:15:10.000Z">
+<meta property="article:modified_time" content="2022-01-18T15:16:28.577Z">
+<meta property="article:author" content="lzkwyy">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/image/3-1.png">
+
+<link rel="canonical" href="http://example.com/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>a | lzkwyy的小屋</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">lzkwyy的小屋</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lzkwyy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzkwyy的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          a
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-18 23:15:10 / 修改时间：23:16:28" itemprop="dateCreated datePublished" datetime="2022-01-18T23:15:10+08:00">2022-01-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="排序算法"><a href="#排序算法" class="headerlink" title="排序算法"></a>排序算法</h1><h2 id="对比各大排序算法"><a href="#对比各大排序算法" class="headerlink" title="对比各大排序算法"></a>对比各大排序算法</h2><blockquote>
+<p>先来点真实的~<br>这就是你们能学到的所有排序</p>
+</blockquote>
+<img src="./image/3-1.png" width = 1000>
+
+<h2 id="排序问题："><a href="#排序问题：" class="headerlink" title="排序问题："></a>排序问题：</h2><p>把一系列数据按非递增的顺序排序<br>输入：n个输入数$&lt;a_1,a_2,…,a_n&gt;$<br>输出：输入系列的有个排序$&lt;a_1’,a_2’,…,a_n’&gt;$，使得$a_1’{\leq}a_2’{\leq},…,{\leq}a_n’$</p>
+<blockquote>
+<p>输入数据的结构可以多种多样，如n元数组、链表等，输出按需求而定。</p>
+</blockquote>
+<ul>
+<li>部分概念：</li>
+<li>*原地排序算法**：空间复杂度为O(1)的排序算法</li>
+<li>*稳定排序算法**：相同的数据，排序后仍维持原有相对次序，可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/116046849">排序算法的稳定性</a></li>
+</ul>
+<p>排序问题是计算机科学领域中的最基本问题：</p>
+<ol>
+<li>有些应用程序本身就需对信息进行排序</li>
+<li>应用广泛，是许多算法的关键步骤</li>
+<li>已有很多成熟算法，他们采用各种技术，具有历史意义</li>
+<li>可以证明其非平凡下界，是渐进最优的</li>
+<li>可通过排序过程的下届来证明其他一些问题的下界</li>
+<li>在实现过程中经常伴随着许多工程问题出现（主机存储器层次结构、软件环境等）</li>
+</ol>
+<h2 id="以比较为基础的排序算法"><a href="#以比较为基础的排序算法" class="headerlink" title="以比较为基础的排序算法"></a>以比较为基础的排序算法</h2><h3 id="1-插入排序："><a href="#1-插入排序：" class="headerlink" title="1. 插入排序："></a>1. 插入排序：</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/d2cf77f78b3e">参考资料：CoderJed：图解插入排序</a></p>
+<p>伪代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">INSERTION-SORT(A)			//A是数组</span><br><span class="line"> for j = 2 to A.length &#123; loop head</span><br><span class="line">	key = A[j]</span><br><span class="line">	//(将A[j]插入排序序列A[1..j-1])</span><br><span class="line">	i = j - 1</span><br><span class="line">	while i &gt; 0 &amp;&amp; A[i] &gt; key &#123;</span><br><span class="line">		A[i+1] = A[i]</span><br><span class="line">		i = i - 1</span><br><span class="line">	&#125;</span><br><span class="line">	A[i+1] = key</span><br><span class="line">&#125; loop below</span><br></pre></td></tr></table></figure>
+
+<p>算法时间效率分析：<br><img src = "./image/3-3.png" width = 500></p>
+<p><strong>最好情况</strong>：数组是排好序的，则插入的时候仅需要进行一次比较，<br><img src = "./image/3-4.png" width = 500><br><strong>最差情况</strong>：数组是逆序排序的，<br><img src = "./image/3-5.png" width = 500></p>
+<p><strong>时间复杂度</strong>：O(n²)<br><strong>空间复杂度</strong>：O(1)，只需要一个额外空间用于交换<br><strong>稳定性</strong>：插入排序是稳定的排序算法，满足条件<code>nums[j] &gt; nums[j + 1]</code>才发生交换，这个条件可以保证值相等的元素的相对位置不变。</p>
+<h3 id="2-冒泡排序"><a href="#2-冒泡排序" class="headerlink" title="2. 冒泡排序"></a>2. 冒泡排序</h3><p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/648d87dc4cfc">参考资料：CoderJed：图解冒泡排序</a></p>
+<p><strong>最好情况</strong>：数据已排好序时<br><strong>最差情况</strong>：数据逆序排列</p>
+<p><strong>时间复杂度</strong>：O(n²)<br><strong>空间复杂度</strong>：O(1)，只需要一个额外空间用于交换<br><strong>稳定性</strong>：冒泡排序是稳定的排序算法。<br>因为可以实现值相等的元素的相对位置不变，例如我们上面的代码中，</p>
+<figure class="highlight plaintext"><figcaption><span>(arr[j] > arr[j + 1]) &#123; swap(arr, j, j + 1); &#125;``` ,只有当```arr[j] > arr[j + 1]```的时候才交换，这时候就是稳定的，假如写成```if (arr[j] ></span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">### 3. 选择排序</span><br><span class="line">[参考资料：CoderJed图解选择排序](https://www.jianshu.com/p/5223afa8796c)</span><br><span class="line"></span><br><span class="line">**时间复杂度**：O(n²)</span><br><span class="line">**空间复杂度**：O(1)，只需要一个附加程序单元用于交换</span><br><span class="line">**稳定性**：选择排序是不稳定的排序算法。</span><br><span class="line">因为无法保证值相等的元素的相对位置不变，例如 [3, 4, 3, 1, 5]这个数组，第一次交换，第一个3和1交换位置，此时原来两个3的相对位置发生了变化。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">### 4. 希尔排序</span><br><span class="line">[参考资料：runoob希尔排序](https://www.runoob.com/w3cnote/shell-sort.html)</span><br><span class="line"></span><br><span class="line">**时间复杂度**：O($n^&#123;1.3-2&#125;$)</span><br><span class="line">**空间复杂度**：O(1)</span><br><span class="line">**稳定性**：希尔排序是按照不同步长对元素进行插入排序，一次插入排序是稳定的，不会改变相同元素的相对顺序，但在不同的插入排序过程中，相同的元素可能在各自的插入排序中移动，稳定性就会被破坏，所以希尔排序不稳定。</span><br><span class="line"></span><br><span class="line">### 5. 堆排序</span><br><span class="line">[参考资料1：kkxiaojun：heapSort](https://github.com/hustcc/JS-Sorting-Algorithm/blob/master/7.heapSort.md)</span><br><span class="line">[参考资料2：庾志辉](https://blog.csdn.net/YuZhiHui_No1/article/details/44258297)</span><br><span class="line">[参考资料3：本来无一物_f1f2](https://www.jianshu.com/p/3d70fccd003b)</span><br><span class="line"></span><br><span class="line">伪代码：</span><br><span class="line">```pseudocode</span><br><span class="line">//建堆,运行时间的界T(n) =O(N)</span><br><span class="line">BuildHeap(A)</span><br><span class="line">        n = length(A)</span><br><span class="line">        for  i = n/2 downto 1  do   //从非叶子节点开始，自底往上，使A变成最大堆</span><br><span class="line">               Max_Heapify(A, i, n)</span><br><span class="line">end</span><br><span class="line">//调整为最大堆 ,T(n) = O(lgn)</span><br><span class="line">Max_Heapify(A,idx,max) //idx：数组开始的下标，max：最大的数组下标</span><br><span class="line">    left = 2*idx</span><br><span class="line">    right = 2*idx</span><br><span class="line">    if(left&lt;max and A[left]&gt;A[idx]) then</span><br><span class="line">        largest = left</span><br><span class="line">    else</span><br><span class="line">        largest = idx</span><br><span class="line">    if(right &lt; max and A[right]&gt;A[largest]) then</span><br><span class="line">        largest = ritht  </span><br><span class="line">    if(largest != idx) then</span><br><span class="line">        exchange A[largest] with A[idx]</span><br><span class="line">        Max_Heapify(A,largest,max) //交换位置后，还需要调整它的子树</span><br><span class="line">end</span><br><span class="line">HeapSort(A)</span><br><span class="line">      BuildHeap(A)</span><br><span class="line">      for i = length(A) downto 2   do </span><br><span class="line">             exchange  A[1] with A[i] //把最大堆根节点与最后一个互换</span><br><span class="line">             Max_Heapify(A,1, i-1) //把交互后的排除在堆之外，重新从1到i-1,调整堆</span><br><span class="line">end</span><br></pre></td></tr></table></figure>
+
+<p>部分操作：<br>建堆时间复杂度：$O(n)$<br>n-1次调整堆每一次代价为$O(lgn)$<br>HeapSort:<br>时间复杂度：$O(nlgn)$<br>空间复杂度：$O(1)$</p>
+<hr>
+<blockquote>
+<p>阅读下面内容前请先翻阅[分治法](./4. 分治法.md)相关内容</p>
+</blockquote>
+<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><h3 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h3><p>排序步数：每次都选中位数，可以找到构造深度最小的平衡二叉树。</p>
+<p><a target="_blank" rel="noopener" href="https://harttle.land/2015/09/27/quick-sort.html">参考资料：harttle</a><br><a target="_blank" rel="noopener" href="https://cloud.tencent.com/developer/article/1182321">参考资料：谭庆波</a><br><strong>平均时间复杂度</strong>：O(nlogn)<br><strong>平均空间复杂度</strong>：O(logn)<br><strong>稳定性</strong>：快速排序是不稳定的。<br>在中枢元素和a[j]（右侧元素）交换的时候，很有可能把前面的元素的稳定性打乱，比如序列为$\left{5,3,3,4,3,8,9,10,11\right}$， 现在中枢元素5和3(第5个元素，下标从1开始计)交换就会把元素3的稳定性打乱；</p>
+<hr>
+<h2 id="不以比较为基础的排序算法"><a href="#不以比较为基础的排序算法" class="headerlink" title="不以比较为基础的排序算法"></a>不以比较为基础的排序算法</h2><h3 id="桶排序"><a href="#桶排序" class="headerlink" title="桶排序"></a>桶排序</h3><h3 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h3><h3 id="基数排序-1"><a href="#基数排序-1" class="headerlink" title="基数排序"></a>基数排序</h3><h2 id="课外知识："><a href="#课外知识：" class="headerlink" title="课外知识："></a>课外知识：</h2><blockquote>
+<p><a href="https%EF%BC%9A//www.delftstack.com/zh/tutorial/algorithm/tim-sort/">Timsort</a>：在较短的子数组归并时使用插入排序<br><a target="_blank" rel="noopener" href="https://www.cxyxiaowu.com/10289.html">TreeSort</a>：利用二叉搜索树排序,根据中序遍历获得解<br><a target="_blank" rel="noopener" href="https://sites.google.com/site/binarysearchcube/">CubeSort</a>：大佬,您自己看,我没看懂</p>
+</blockquote>
+<img src = "./image/3-6.png">
+
+
+
+
+<h2 id="java实现"><a href="#java实现" class="headerlink" title="java实现"></a>java实现</h2><blockquote>
+<p>呕心沥血的乱涂乱画<br><a href="./sort.md">lzkwyy的sort.md</a></p>
+</blockquote>
+<h2 id="感谢"><a href="#感谢" class="headerlink" title="感谢"></a>感谢</h2><p>本章复杂度分析部分来自：<br>简书作者：CoderJed<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/u/f3baddfa95fc">https://www.jianshu.com/u/f3baddfa95fc</a></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/18/7.%20%E5%9B%9E%E6%BA%AF%E6%B3%95/" rel="prev" title="a">
+      <i class="fa fa-chevron-left"></i> a
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/18/4.%20%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/" rel="next" title="a">
+      a <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%B9%E6%AF%94%E5%90%84%E5%A4%A7%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">1.1.</span> <span class="nav-text">对比各大排序算法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%92%E5%BA%8F%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">排序问题：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%A5%E6%AF%94%E8%BE%83%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">1.3.</span> <span class="nav-text">以比较为基础的排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="nav-number">1.3.1.</span> <span class="nav-text">1. 插入排序：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.2.</span> <span class="nav-text">2. 冒泡排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.3.</span> <span class="nav-text">归并排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="nav-number">1.3.4.</span> <span class="nav-text">快速排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8D%E4%BB%A5%E6%AF%94%E8%BE%83%E4%B8%BA%E5%9F%BA%E7%A1%80%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95"><span class="nav-number">1.4.</span> <span class="nav-text">不以比较为基础的排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A1%B6%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.1.</span> <span class="nav-text">桶排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F"><span class="nav-number">1.4.2.</span> <span class="nav-text">基数排序</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F-1"><span class="nav-number">1.4.3.</span> <span class="nav-text">基数排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%BE%E5%A4%96%E7%9F%A5%E8%AF%86%EF%BC%9A"><span class="nav-number">1.5.</span> <span class="nav-text">课外知识：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.6.</span> <span class="nav-text">java实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%84%9F%E8%B0%A2"><span class="nav-number">1.7.</span> <span class="nav-text">感谢</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">lzkwyy</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">lzkwyy</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

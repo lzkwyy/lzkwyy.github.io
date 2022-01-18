@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="lzkwyy的小屋">
-<meta property="og:url" content="http://example.com/archives/2022/index.html">
+  <meta name="description" content="贪心算法基本思想： 从问题的某一个初始解出发，通过一系列的贪心选择，即当前状态下的局部最优选择，逐步逼近给定的目标，尽可能快地求得更好的解。 在贪心算法(Greedy Method)中采用逐步构造&#x2F;分级最优解的方法。在每个阶段，都作出一个按某个评价函数最优的决策，该最优评价函数称为贪心准则(Greedy Criterion) 贪心算法的正确性，要证明按贪心准则求得的解是全局最优解。  基本步骤：①">
+<meta property="og:type" content="article">
+<meta property="og:title" content="a">
+<meta property="og:url" content="http://example.com/2022/01/18/6.%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="lzkwyy的小屋">
+<meta property="og:description" content="贪心算法基本思想： 从问题的某一个初始解出发，通过一系列的贪心选择，即当前状态下的局部最优选择，逐步逼近给定的目标，尽可能快地求得更好的解。 在贪心算法(Greedy Method)中采用逐步构造&#x2F;分级最优解的方法。在每个阶段，都作出一个按某个评价函数最优的决策，该最优评价函数称为贪心准则(Greedy Criterion) 贪心算法的正确性，要证明按贪心准则求得的解是全局最优解。  基本步骤：①">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-01-18T15:15:10.000Z">
+<meta property="article:modified_time" content="2022-01-18T15:17:04.871Z">
 <meta property="article:author" content="lzkwyy">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/2022/">
+<link rel="canonical" href="http://example.com/2022/01/18/6.%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | lzkwyy的小屋</title>
+  <title>a | lzkwyy的小屋</title>
   
 
 
@@ -149,234 +153,96 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 13 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2022/01/18/6.%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="lzkwyy">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="lzkwyy的小屋">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          a
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-01-18 23:15:10 / 修改时间：23:17:04" itemprop="dateCreated datePublished" datetime="2022-01-18T23:15:10+08:00">2022-01-18</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
+        <h1 id="贪心算法"><a href="#贪心算法" class="headerlink" title="贪心算法"></a>贪心算法</h1><h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><ul>
+<li>从问题的某一个初始解出发，通过一系列的贪心选择，即当前状态下的<strong>局部最优选择</strong>，逐步逼近给定的目标，尽可能快地求得更<br>好的解。</li>
+<li>在贪心算法(Greedy Method)中采用<strong>逐步构造/分级最优解</strong>的方法。在每个阶段，都作出一个按某个评价函数最优的决策，该最优<br>评价函数称为贪心准则(Greedy Criterion)</li>
+<li>贪心算法的正确性，要<strong>证明按贪心准则求得的解是全局最优解。</strong></li>
+</ul>
+<h2 id="基本步骤："><a href="#基本步骤：" class="headerlink" title="基本步骤："></a>基本步骤：</h2><p>① 决定问题的最优子结构；<br>② 设计出一个递归解；<br>③ 证明在递归的任一阶段，最优选择之一总是贪心选择, 那么做贪心选择总是安全的。<br>④ 证明通过做贪心选择，所有子问题(除一个以外)都为空, 即只产生一个子问题。<br>⑤ 设计出一个实现贪心策略的递归算法。<br>⑥ (性能角度) 将递归算法转换成迭代算法。</p>
+<h2 id="可求解问题的性质："><a href="#可求解问题的性质：" class="headerlink" title="可求解问题的性质："></a>可求解问题的性质：</h2><ul>
+<li>贪心选择性质<br>所谓贪心选择性质是指<strong>所求问题的整体最优解可以通过一系列局部最优的选择</strong>，即贪心选择来达到。这是贪心算法可行的第一个基本要素，也是贪心算法与动态规划算法的主要区别。动态规划算法通常以自底向上的方式解各子问题，而贪心算法则通常以<strong>自顶向下</strong>的方式进行，以迭代的方式作出相继的贪心选择，<strong>每作一次贪心选择就将所求问题简化为规模更小的子问题</strong>。对于一个具体问题，要确定它是否具有贪心选择性质，必须证明每一步所作的贪心选择最终导致问题的整体最优解，否则得到的是近优解。</li>
+<li>最优子结构<br>当<strong>一个问题的最优解包含其子问题的最优解</strong>时，称此问题具有最优子结构性质。问题的最优子结构性质是该问题可用动态规划算法或贪心算法求解的关键特征。但是，需要注意的是，<strong>并非所有具有最优子结构性质的问题都可以采用贪心策略来得到最优解。</strong></li>
+</ul>
+<img src = "./image/6-1.png" width = 500>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/1.%20%E7%AE%97%E6%B3%95%E5%85%A5%E9%97%A8/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/2.%20%E7%AE%97%E6%B3%95%E5%88%86%E6%9E%90%E5%9F%BA%E7%A1%80/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/10.%20np%E7%90%86%E8%AE%BA/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/4.%20%E9%80%92%E5%BD%92%E4%B8%8E%E5%88%86%E6%B2%BB/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/3.%20%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/7.%20%E5%9B%9E%E6%BA%AF%E6%B3%95/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/6.%20%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/8.%20%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/9.%20%E9%9A%8F%E6%9C%BA%E5%8C%96/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-01-18T23:15:10+08:00"
-              content="2022-01-18">
-          01-18
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/01/18/5.%20%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" itemprop="url">
-            <span itemprop="name">a</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<img src = "./image/6-2.png" width = 500>
 
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/01/18/8.%20%E5%88%86%E6%94%AF%E9%99%90%E7%95%8C%E6%B3%95/" rel="prev" title="a">
+      <i class="fa fa-chevron-left"></i> a
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2022/01/18/7.%20%E5%9B%9E%E6%BA%AF%E6%B3%95/" rel="next" title="a">
+      a <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2022/page/2/">2</a><a class="extend next" rel="next" href="/archives/2022/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
@@ -428,6 +294,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%B4%AA%E5%BF%83%E7%AE%97%E6%B3%95"><span class="nav-number">1.</span> <span class="nav-text">贪心算法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%80%9D%E6%83%B3%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">基本思想：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E6%AD%A5%E9%AA%A4%EF%BC%9A"><span class="nav-number">1.2.</span> <span class="nav-text">基本步骤：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%AF%E6%B1%82%E8%A7%A3%E9%97%AE%E9%A2%98%E7%9A%84%E6%80%A7%E8%B4%A8%EF%BC%9A"><span class="nav-number">1.3.</span> <span class="nav-text">可求解问题的性质：</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
